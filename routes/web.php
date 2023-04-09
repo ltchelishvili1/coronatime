@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::redirect('/', 'login');
+Route::redirect('/', 'login')->middleware('guest');
+Route::redirect('/', 'dashboard')->middleware('auth');
+
 Route::view('/login', 'auth.login.index')->name('login');
 Route::view('/signup', 'auth.signup.index')->name('signup');
 
@@ -25,3 +27,5 @@ Route::view('/reset-password-email-sent', 'auth.resetpassword.email-sent')->name
 
 Route::view('/reset-password-email-verified', 'auth.resetpassword.email-verified')->name('resetpasswordemailverified');
 Route::view('/signup-email-verify', 'auth.signup.email-verify')->name('emailverify');
+
+Route::view('/dashboard', 'dashboard.index')->name('dashboard');
