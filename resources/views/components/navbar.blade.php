@@ -30,17 +30,17 @@
     </div>
 </nav>
 <div class="mt-14">
-    <p class="text-2xl font-extrabold">Worldwide Statistics</p>
+    <p class="text-2xl font-extrabold">{{$text}}</p>
     <div class="mt-10 flex">
         <div class="block relative">
-            <a href="#" class="{{ $selected === 'worldwide' ? 'font-bold' : '' }} text-base">Worldwide</a>
+            <a href="{{route('dashboard')}}" class="{{ $selected === 'worldwide' ? 'font-bold' : '' }} text-base">Worldwide</a>
             @if($selected === 'worldwide')
                 <span class="absolute bg-black top-9 left-0 right-0 h-0.5"></span>
             @endif
         </div>
         
         <div class="block relative ml-16">
-            <a href="#" class="{{ $selected === 'bycountry' ? 'font-bold' : '' }} text-base">By Country</a>
+            <a href="{{route('dashboard.bycountry')}}" class="{{ $selected === 'bycountry' ? 'font-bold' : '' }} text-base">By Country</a>
             @if($selected === 'bycountry')
                 <span class="absolute bg-black top-9 left-0 right-0 h-0.5"></span>
             @endif

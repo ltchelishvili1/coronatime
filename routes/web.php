@@ -29,3 +29,5 @@ Route::view('/reset-password-email-verified', 'auth.resetpassword.email-verified
 Route::view('/signup-email-verify', 'auth.signup.email-verify')->name('emailverify');
 
 Route::view('/dashboard', 'dashboard.index')->name('dashboard');
+
+Route::view('/dashboard-bycountry', 'dashboard.bycountry')->name('dashboard.bycountry');
