@@ -2,7 +2,7 @@
 <x-reset-password-layout title="">
     <div>
         <div class="grid justify-center">
-            <x-svgs.success />
+            <x-assets.success />
         </div>
      {{$slot}}
     </div>

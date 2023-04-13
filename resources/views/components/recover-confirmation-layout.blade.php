@@ -2,7 +2,7 @@
 
     <div class="grid pt-40">
         <div class="lg:m-auto md:m-auto">
-            <x-svgs.landing />
+            <x-assets.landing-page-image />
         </div>
         <div class="grid justify-center  pt-12 ">
             <h1 class="font-black text-2xl flex justify-center ">{{$mainText}}</h1>

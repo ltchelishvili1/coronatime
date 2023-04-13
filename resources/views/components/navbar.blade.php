@@ -1,7 +1,7 @@
 <nav class="flex justify-between items-center h-20 md:h-90">
     <div class="grid grid-cols-2 items-center flex-grow">
         <div class="flex items-center">
-            <x-svgs.coronatime class="h-20 md:h-28 mr-4" />
+            <x-assets.coronatime-logo class="h-20 md:h-28 mr-4" />
         </div>
         <div class="flex items-center justify-end">
             <div class="ml-auto  md:block">
@@ -23,7 +23,7 @@
             </div>
             <div class="ml-auto md:hidden">
                 <button id="toggleBtn" class="focus:outline-none">
-                    <x-svgs.toggle />
+                    <x-assets.toggle-icon />
                 </button>
             </div>
         </div>

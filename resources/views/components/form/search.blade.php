@@ -1,7 +1,7 @@
 <x-form.field>
     <div class="relative">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <x-svgs.search/>
+            <x-assets.search-icon/>
         </div>
         <input name="{{$name}}" id="{{$name}}" type="search" placeholder="search by country" {{$attributes(['value'=>
         old($name)])}}

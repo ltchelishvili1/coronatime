@@ -22,7 +22,7 @@
 
 <body class="grid justify-center">
     <div class="grid justify-center">
-     <span class="mt-10 mb-36"> <x-svgs.coronatime /></span>  
+     <span class="mt-10 mb-36"> <x-assets.coronatime-logo /></span>  
       <h1 class="font-black text-2xl mb-14">{{$title}}</h1>
     </div>
     <div>

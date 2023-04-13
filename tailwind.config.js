@@ -8,16 +8,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        customblue: '#2029F3',
-        customgreen: '#0FBA68',
-        customyellow: '#EAD621',
+        "dark-blue": '#2029F3',
+        'dark-green': '#0FBA68',
+        'dark-yellow': '#EAD621',
   
-      },
-      boxShadow: {
-        'cardboxshadow': '1px 2px 8px rgba(0, 0, 0, 0.04);',
-      },
-    
-
+      },  
     },
    
   },
