@@ -13,6 +13,9 @@ module.exports = {
         'dark-yellow': '#EAD621',
   
       },  
+      boxShadow: {
+        "input-box-shadow-blue": "-3px 3px 0px #DBE8FB, -3px -3px 0px #DBE8FB, 3px -3px 0px #DBE8FB, 3px 3px 0px #DBE8FB, 3px 3px 0px #DBE8FB"
+      }
     },
    
   },
