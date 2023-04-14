@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,8 @@ Route::redirect('/', 'login')->middleware('guest');
 // Route::redirect('/', 'dashboard')->middleware('auth');
 
 Route::view('login', 'auth.login.index')->name('login');
+Route::post('login', [LoginController::class, 'login'])->name('login.post');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::view('register', 'auth.signup.index')->name('register');
 Route::post('register', [RegisterController::class, 'register'])->name('register.store');
@@ -33,6 +36,6 @@ Route::get('signup-email-verified/{token}', [RegisterController::class, 'emailVe
 
 // Route::view('/signup-email-verify', 'auth.signup.email-verify')->name('emailverify');
 
-// Route::view('/dashboard', 'dashboard.index')->name('dashboard');
+Route::view('/dashboard', 'dashboard.index')->name('dashboard');
 
-// Route::view('/dashboard-bycountry', 'dashboard.bycountry')->name('dashboard.bycountry');
+Route::view('/dashboard-bycountry', 'dashboard.bycountry')->name('dashboard.bycountry');

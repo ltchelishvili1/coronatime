@@ -14,10 +14,11 @@
                 id="usernameAndLogout">
                 <div class="grid grid-cols-2 divide-x">
                     <div>
-                        <h1 class="font-bold text-base mr-4">username</h1>
+                        <h1 class="font-bold text-base mr-4">{{ auth()->user()->username }}
+                        </h1>
                     </div>
                     <div>
-                        <a href="#" class="ml-4">Log Out</a>
+                        <a href="{{route('logout')}}" class="ml-4">Log Out</a>
                     </div>
                 </div>
             </div>
