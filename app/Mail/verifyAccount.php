@@ -12,11 +12,11 @@ class verifyAccount extends Mailable
 
 	use SerializesModels;
 
-	public $data;
+	public $token;
 
-	public function __construct($data)
+	public function __construct($token)
 	{
-		$this->data = $data;
+		$this->token = $token;
 	}
 
 	public function build()
@@ -24,7 +24,9 @@ class verifyAccount extends Mailable
 		{
 			return $this->from('noreply@coronatime.com', )
 			->subject('Verify Email')
-			->view('auth.signup.email-verify');
+			->view('auth.signup.email-verify', [
+				'token' => $this->token,
+			]);
 		}
 	}
 }

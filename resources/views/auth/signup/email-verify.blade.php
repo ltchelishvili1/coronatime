@@ -14,7 +14,7 @@
                 <table cellpadding="0" cellspacing="0" border="0" align="center" style="text-align: center;">
                     <tr>
                         <td align="center" valign="middle" style="background-color: #0fba68; padding: 12px 20px; border-radius: 8px; width: 392px;">
-                            <a href="#" style="display: inline-block; font-weight: bold; font-size: 16px; color: #ffffff; text-decoration: none; width: 100%;">Verify Email</a>
+                            <a href="{{route('resetpasswordemailverified',[$token])}}" style="display: inline-block; font-weight: bold; font-size: 16px; color: #ffffff; text-decoration: none; width: 100%;">Verify Email</a>
                         </td>                        
                     </tr>
                 </table>

@@ -21,16 +21,16 @@ Route::view('login', 'auth.login.index')->name('login');
 Route::view('register', 'auth.signup.index')->name('register');
 Route::post('register', [RegisterController::class, 'register'])->name('register.store');
 
-Route::view('/reset-password-req', 'auth.resetpasswordreq.index')->name('resetpasswordreq');
-Route::view('/signup-email-verify', 'auth.signup.email-verify')->name('emailverify');
-Route::view('/signup-verification-email-sent', 'auth.resetpassword.email-sent')->name('signupverificationemail');
+Route::view('reset-password-req', 'auth.resetpasswordreq.index')->name('resetpasswordreq');
+Route::view('signup-email-verify', 'auth.signup.email-verify')->name('emailverify');
+Route::view('signup-verification-email-sent', 'auth.resetpassword.email-sent')->name('signupverificationemail');
+Route::get('signup-email-verified/{token}', [RegisterController::class, 'emailVerify'])->name('resetpasswordemailverified');
 
 // Route::view('/reset-password-changed', 'auth.resetpasswordreq.password-changed')->name('passwordchanged');
 // Route::view('/reset-password-recover', 'auth.resetpasswordreq.password-recover')->name('passwordrecover');
 
 // Route::view('/reset-password', 'auth.resetpassword.index')->name('resetpasswordsuc');
 
-// Route::view('/reset-password-email-verified', 'auth.resetpassword.email-verified')->name('resetpasswordemailverified');
 // Route::view('/signup-email-verify', 'auth.signup.email-verify')->name('emailverify');
 
 // Route::view('/dashboard', 'dashboard.index')->name('dashboard');
