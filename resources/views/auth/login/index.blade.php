@@ -13,7 +13,7 @@
                 </label>
                 
                 <div class="inline-flex items-center mt-6 ">
-                    <a href="{{route('resetpasswordreq')}}" class="text-blue-600 font-medium text-sm">Forgot
+                    <a href="{{route('password.resetrequest')}}" class="text-blue-600 font-medium text-sm">Forgot
                         Password?</a>
                 </div>
             </div>

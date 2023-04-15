@@ -19,7 +19,7 @@ class RegisterController extends Controller
 		Mail::to($validated['email'])->send(new verifyAccount($validated['token']));
 		User::create($validated);
 
-		return redirect(route('signupverificationemail'));
+		return redirect(route('register.emailsent'));
 	}
 
 	public function emailVerify($token)

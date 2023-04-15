@@ -60,4 +60,9 @@ class User extends Authenticatable implements MustVerifyEmail
 	{
 		$this->attributes['password'] = bcrypt($password);
 	}
+
+	public function passwordReset()
+	{
+		return $this->hasMany(PasswordReset::class, 'email', 'email');
+	}
 }

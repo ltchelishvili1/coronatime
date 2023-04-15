@@ -25,14 +25,6 @@ class LoginController extends Controller
 			$user = User::where('username', $validated['username'])->first();
 		}
 
-		if ($user->email_verified_at === null) {
-			throw ValidationException::withMessages([
-				'username' => 'Email is not verified',
-			]);
-
-			return redirect('login');
-		}
-
 		if (array_key_exists('remember_me', $validated)) {
 			$remember_me = $validated['remember_me'];
 			unset($validated['remember_me']);
@@ -43,7 +35,13 @@ class LoginController extends Controller
 				'username' => 'wrong credentials',
 			]);
 		}
+		if ($user->email_verified_at === null) {
+			throw ValidationException::withMessages([
+				'username' => 'Email is not verified',
+			]);
 
+			return redirect('login');
+		}
 		session()->regenerate();
 
 		return redirect('dashboard');

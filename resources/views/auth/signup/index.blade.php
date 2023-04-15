@@ -2,7 +2,7 @@
     <div class="lg:w-2/3 max-w-2/3">
         <h1 class="font-black text-2xl">Welcome to Coronatime</h1>
         <h5 class="my-4 text-zinc-400 text-xl">Please enter required info to sign up</h5>
-        <form method="POST" action="{{route('register.store')}}" >
+        <form method="POST" action="{{route('register.post')}}" >
             @csrf
             <x-form.input name='username' placeholder='Enter unique username' />
             <x-form.input name='email' type='email' placeholder='Enter your email' />
