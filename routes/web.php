@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +37,5 @@ Route::view('/reset-password-changed', 'auth.resetpasswordreq.password-changed')
 
 Route::view('/dashboard', 'dashboard.index')->name('dashboard');
 Route::view('/dashboard-by-country', 'dashboard.bycountry')->name('dashboard.bycountry');
+
+Route::get('set-language/{language}', [LanguageController::class, 'setLanguage'])->name('set-language');

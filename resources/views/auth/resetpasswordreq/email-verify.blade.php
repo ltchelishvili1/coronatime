@@ -14,16 +14,15 @@
             <td align="center" valign="top" style=" padding: 40px;">
                 <h1
                     style="font-weight: bold; font-size: 25px; margin: 0 0 20px 0; line-height: 1.2; color: #333333; text-align: center;">
-                    Recover Password</h1>
+                  {{__('email-recover-password.title')}}  </h1>
                 <p style="font-size: 18px; margin: 0 0 20px 0; line-height: 1.5; color: #666666; text-align: center;">
-                    click this button to recover a password</p>
+                   {{__('email-recover-password.description')}} </p>
                 <table cellpadding="0" cellspacing="0" border="0" align="center" style="text-align: center;">
                     <tr>
                         <td align="center" valign="middle"
                             style="background-color: #0fba68; padding: 12px 20px; border-radius: 8px; width: 392px;">
                             <a href="{{route('password.resetform',[$token])}}"
-                                style="display: inline-block; font-weight: bold; font-size: 16px; color: #ffffff; text-decoration: none; width: 100%;">RECOVER
-                                PASSWORD</a>
+                                style="display: inline-block; font-weight: bold; font-size: 16px; color: #ffffff; text-decoration: none; width: 100%;"> {{__('email-recover-password.recover')}}</a>
                         </td>
                     </tr>
                 </table>
