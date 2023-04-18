@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\CustomVerifyEmailNotification;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -24,12 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
 	 *
 	 * @var array<int, string>
 	 */
-	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array<int, string>
-	 */
-	protected $fillable = [
+	protected array $fillable = [
 		'name',
 		'email',
 		'password',
@@ -42,7 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
 	 *
 	 * @var array<int, string>
 	 */
-	protected $hidden = [
+	protected array $hidden = [
 		'password',
 		'remember_token',
 	];
@@ -52,17 +48,22 @@ class User extends Authenticatable implements MustVerifyEmail
 	 *
 	 * @var array<string, string>
 	 */
-	protected $casts = [
+	protected array $casts = [
 		'email_verified_at' => 'datetime',
 	];
 
-	public function setPasswordAttribute($password)
+	public function setPasswordAttribute(string $password): void
 	{
 		$this->attributes['password'] = bcrypt($password);
 	}
 
-	public function passwordReset()
+	public function passwordReset(): HasMany
 	{
 		return $this->hasMany(PasswordReset::class, 'email', 'email');
+	}
+
+	public function sendEmailVerificationNotification(): void
+	{
+		$this->notify(new CustomVerifyEmailNotification);
 	}
 }

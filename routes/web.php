@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\EmailVerifyController;
 use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\PasswordResetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,14 +26,17 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::view('register', 'auth.signup.index')->name('register');
 Route::post('register', [RegisterController::class, 'register'])->name('register.post');
+
 Route::view('register-verification-email-sent', 'auth.resetpassword.email-sent')->name('register.emailsent');
-Route::get('register-email-verified/{token}', [RegisterController::class, 'emailVerify'])->name('register.emailverified');
+
+Route::view('email/verify', 'auth.resetpassword.email-sent')->name('verification.notice');
+Route::get('/email/verify/{id}/{hash}', [EmailVerifyController::class, 'emailVerify'])->name('verification.verify');
 
 Route::view('forgot-password', 'auth.resetpasswordreq.index')->name('password.resetrequest');
-Route::post('forgot-password', [PasswordController::class, 'resetPassword'])->name('password.resetrequest.post');
+Route::post('forgot-password', [PasswordResetController::class, 'resetPassword'])->name('password.resetrequest.post');
 
-Route::get('/reset-password/{token}', [PasswordController::class, 'index'])->name('password.resetform');
-Route::post('/reset-password/{token}', [PasswordController::class, 'changePassword'])->name('password.update');
+Route::get('/reset-password/{token}', [PasswordResetController::class, 'index'])->name('password.resetform');
+Route::post('/reset-password/{token}', [PasswordResetController::class, 'changePassword'])->name('password.update');
 Route::view('/reset-password-changed', 'auth.resetpasswordreq.password-changed')->name('passwordchanged');
 
 Route::view('/dashboard', 'dashboard.index')->name('dashboard');

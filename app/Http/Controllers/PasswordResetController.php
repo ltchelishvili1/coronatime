@@ -10,10 +10,11 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 
-class PasswordController extends Controller
+class PasswordResetController extends Controller
 {
-	public function index($token)
+	public function index($token): View
 	{
 		return view('auth.resetpassword.index', ['token' => $token]);
 	}
@@ -34,7 +35,7 @@ class PasswordController extends Controller
 		return redirect(route('register.emailsent'));
 	}
 
-	public function changePassword(ChangePassword $request, $token)
+	public function changePassword(ChangePassword $request, $token): RedirectResponse
 	{
 		$newPassword = $request->validated()['new_password'];
 		$email = PasswordReset::where('token', $token)->first()->email;
