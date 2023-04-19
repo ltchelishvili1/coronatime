@@ -19,6 +19,6 @@ class CustomVerifyEmailNotification extends VerifyEmail
 		return (new MailMessage)
 			->subject('Verify your email address')
 			->action('Verify Email', $this->verificationUrl($notifiable))
-			->view('auth.signup.email-verify', ['id' => $notifiable->getKey(), 'hash' => sha1($notifiable->getEmailForVerification())]);
+			->view('mails.account-verify', ['id' => $notifiable->getKey(), 'hash' => sha1($notifiable->getEmailForVerification())]);
 	}
 }

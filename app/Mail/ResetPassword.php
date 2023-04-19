@@ -24,7 +24,7 @@ class ResetPassword extends Mailable
 		return $this
 			->from('noreply@coronatime.com')
 			->subject('Update Password')
-			->view('auth.resetpasswordreq.email-verify', [
+			->view('mails.reset-password', [
 				'token' => $this->token,
 			]);
 	}

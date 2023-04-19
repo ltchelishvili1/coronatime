@@ -7,7 +7,7 @@ use App\Models\User;
 
 class EmailVerifyRequest extends EmailVerificationRequest
 {
-	public function authorize()
+	public function authorize(): bool
 	{
 		$user = User::find($this->route('id'));
 
@@ -18,7 +18,7 @@ class EmailVerifyRequest extends EmailVerificationRequest
 		return hash_equals(sha1($user->getEmailForVerification()), (string) $this->route('hash'));
 	}
 
-	public function fulfill()
+	public function fulfill(): void
 	{
 		$user = User::find($this->route('id'));
 

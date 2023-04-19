@@ -46,4 +46,14 @@ class PasswordResetController extends Controller
 
 		return redirect(route('passwordchanged'));
 	}
+
+	public function passwordChanged(): View
+	{
+		return view('auth.resetpasswordreq.password-changed');
+	}
+
+	public function resetRequest(): View
+	{
+		return view('auth.resetpasswordreq.index');
+	}
 }
