@@ -25,7 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
 	 *
 	 * @var array<int, string>
 	 */
-	protected array $fillable = [
+	protected $fillable = [
 		'name',
 		'email',
 		'password',
@@ -38,7 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
 	 *
 	 * @var array<int, string>
 	 */
-	protected array $hidden = [
+	protected $hidden = [
 		'password',
 		'remember_token',
 	];
@@ -48,10 +48,6 @@ class User extends Authenticatable implements MustVerifyEmail
 	 *
 	 * @var array<string, string>
 	 */
-	protected array $casts = [
-		'email_verified_at' => 'datetime',
-	];
-
 	public function setPasswordAttribute(string $password): void
 	{
 		$this->attributes['password'] = bcrypt($password);
