@@ -5,10 +5,21 @@
         </div>
         <div class="flex items-center justify-end">
             <div class="ml-auto  md:block">
-                <select class="bg-transparent border-none mr-12">
-                    <option><a href="{{route('set-language',['en'])}}">{{__('dashboard.english')}}</a></option>
-                    <option><a href="{{route('set-language',['ka'])}}">{{__('dashboard.georgian')}}</a></option>
-                </select>
+                <div x-data="{show: false}" @click.away="show=false">
+                    <button class="mr-12 sm:mr-10 text-base flex items-center gap-1" @click="show = !show">
+                        {{app()->getLocale()=='en'?'English':'ქართული'}}
+                    </button>
+                    <div x-show="show" class="absolute bg-neutral-200 rounded-sm" style="display: none">
+
+                        <a class="block py-1 pl-2 hover:bg-neutral-300 pr-1  {{'ka' == App::getLocale() ? 'bg-blue-600 text-white hover:bg-blue-600':'bg-transparent '}}"
+                            href="{{ route('set-language', 'ka') }}">
+                            {{__('dashboard.georgian')}}</a>
+                            <a class="block py-1 pl-2 hover:bg-neutral-300 pr-1  {{'en' == App::getLocale() ? 'bg-blue-600 text-white hover:bg-blue-600':'bg-transparent '}}"
+                            href="{{ route('set-language', 'en') }}">
+                            {{__('dashboard.english')}}</a>
+
+                    </div>
+                </div>
             </div>
             <div class="lg:flex md:flex lg:relative md:relative fixed md:top-0 top-16 md:block hidden"
                 id="usernameAndLogout">
