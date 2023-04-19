@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SortRequest;
 use Illuminate\View\View;
 
 class DashboardController extends Controller
@@ -11,8 +12,8 @@ class DashboardController extends Controller
 		return view('dashboard.index');
 	}
 
-	public function bycountry(): View
+	public function bycountry(SortRequest $request): View
 	{
-		return view('dashboard.bycountry');
+		return view('dashboard.bycountry', ['countries' => $request->getFilteredData()]);
 	}
 }

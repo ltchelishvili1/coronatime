@@ -21,7 +21,7 @@
                     <tr>
                         <td align="center" valign="middle"
                             style="background-color: #0fba68; padding: 12px 20px; border-radius: 8px; width: 392px;">
-                            <a href="{{route('verification.verify', [$id, $hash])}}?_token={{ csrf_token() }}"
+                            <a href="{{route('verification.verify', [$id, $hash])}}"
                                 style="display: inline-block; font-weight: bold; font-size: 16px; color: #ffffff; text-decoration: none; width: 100%;">{{__('email-verify.verify')}}</a>
                         </td>
                     </tr>
