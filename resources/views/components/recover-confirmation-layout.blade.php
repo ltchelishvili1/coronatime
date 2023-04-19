@@ -1,5 +1,4 @@
 <x-layout>
-
     <div class="grid pt-40">
         <div class="lg:m-auto md:m-auto">
             <x-assets.landing-page-image />

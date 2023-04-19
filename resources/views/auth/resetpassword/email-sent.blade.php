@@ -1,3 +1,3 @@
 <x-messages-layout>
-    <p class="mt-4">We have sent you a confirmation email</p>
+    <p class="mt-4">{{__('messages.register-verification-email-sent')}}</p>
 </x-messages-layout>

@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmailVerifyController;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\PasswordResetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,21 +19,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::redirect('/', 'login')->middleware('guest');
-// Route::redirect('/', 'dashboard')->middleware('auth');
+Route::redirect('/', 'dashboard')->middleware('auth');
 
-Route::view('/login', 'auth.login.index')->name('login');
-Route::view('/signup', 'auth.signup.index')->name('signup');
+Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::post('login', [LoginController::class, 'login'])->name('login.post');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::view('/reset-password-req', 'auth.resetpasswordreq.index')->name('resetpasswordreq');
-// Route::view('/reset-password-changed', 'auth.resetpasswordreq.password-changed')->name('passwordchanged');
-// Route::view('/reset-password-recover', 'auth.resetpasswordreq.password-recover')->name('passwordrecover');
+Route::get('register', [RegisterController::class, 'index'])->name('register');
+Route::post('register', [RegisterController::class, 'register'])->name('register.post');
+Route::get('register-verification-email-sent', [RegisterController::class, 'verificationEmail'])->name('register.emailsent');
 
-// Route::view('/reset-password', 'auth.resetpassword.index')->name('resetpasswordsuc');
-// Route::view('/reset-password-email-sent', 'auth.resetpassword.email-sent')->name('resetpasswordemailsent');
+Route::get('email/verify', [EmailVerifyController::class, 'index'])->name('verification.notice');
+Route::get('/email/verify/{id}/{hash}', [EmailVerifyController::class, 'emailVerify'])->name('verification.verify');
 
-// Route::view('/reset-password-email-verified', 'auth.resetpassword.email-verified')->name('resetpasswordemailverified');
-// Route::view('/signup-email-verify', 'auth.signup.email-verify')->name('emailverify');
+Route::get('forgot-password', [PasswordResetController::class, 'resetRequest'])->name('password.resetrequest');
+Route::post('reset-password', [PasswordResetController::class, 'resetPassword'])->name('password.resetrequest.post');
+Route::get('/reset-password/{token}', [PasswordResetController::class, 'index'])->name('password.resetform');
+Route::post('/reset-password/{token}', [PasswordResetController::class, 'changePassword'])->name('password.update');
+Route::get('/reset-password-changed', [PasswordResetController::class, 'passwordchanged'])->name('passwordchanged');
 
-// Route::view('/dashboard', 'dashboard.index')->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard-by-country', [DashboardController::class, 'bycountry'])->name('dashboard.bycountry');
 
-// Route::view('/dashboard-bycountry', 'dashboard.bycountry')->name('dashboard.bycountry');
+Route::get('set-language/{language}', [LanguageController::class, 'setLanguage'])->name('set-language');

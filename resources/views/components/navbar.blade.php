@@ -6,18 +6,19 @@
         <div class="flex items-center justify-end">
             <div class="ml-auto  md:block">
                 <select class="bg-transparent border-none mr-12">
-                    <option><a href="#">English</a></option>
-                    <option><a href="#">Georgian</a></option>
+                    <option><a href="{{route('set-language',['en'])}}">{{__('dashboard.english')}}</a></option>
+                    <option><a href="{{route('set-language',['ka'])}}">{{__('dashboard.georgian')}}</a></option>
                 </select>
             </div>
             <div class="lg:flex md:flex lg:relative md:relative fixed md:top-0 top-16 md:block hidden"
                 id="usernameAndLogout">
                 <div class="grid grid-cols-2 divide-x">
                     <div>
-                        <h1 class="font-bold text-base mr-4">username</h1>
+                        <h1 class="font-bold text-base mr-4">{{ auth()->user()->username }}
+                        </h1>
                     </div>
                     <div>
-                        <a href="#" class="ml-4">Log Out</a>
+                        <a href="{{route('logout')}}" class="ml-4">{{__('dashboard.log_out')}}</a>
                     </div>
                 </div>
             </div>
@@ -33,18 +34,20 @@
     <p class="text-2xl font-extrabold">{{$text}}</p>
     <div class="mt-10 flex">
         <div class="block relative">
-            <a href="{{route('dashboard')}}" class="{{ $selected === 'worldwide' ? 'font-bold' : '' }} text-base">Worldwide</a>
+            <a href="{{route('dashboard')}}"
+                class="{{ $selected === 'worldwide' ? 'font-bold' : '' }} text-base">{{__('dashboard.worldwide')}}</a>
             @if($selected === 'worldwide')
-                <span class="absolute bg-black top-9 left-0 right-0 h-0.5"></span>
+            <span class="absolute bg-black top-9 left-0 right-0 h-0.5"></span>
             @endif
         </div>
-        
+
         <div class="block relative ml-16">
-            <a href="{{route('dashboard.bycountry')}}" class="{{ $selected === 'bycountry' ? 'font-bold' : '' }} text-base">By Country</a>
+            <a href="{{route('dashboard.bycountry')}}"
+                class="{{ $selected === 'bycountry' ? 'font-bold' : '' }} text-base">{{__('dashboard.bycountry')}}</a>
             @if($selected === 'bycountry')
-                <span class="absolute bg-black top-9 left-0 right-0 h-0.5"></span>
+            <span class="absolute bg-black top-9 left-0 right-0 h-0.5"></span>
             @endif
-      </div>
+        </div>
     </div>
 </div>
 
