@@ -53,14 +53,14 @@
                         {{__('dashboard.worldwide')}}
                     </div>
                     <div class="py-2 px-4 border-t border-b border-gray-100 w-1/4">
-                        {{$stats['confirmed']}}
+                        {{number_format($stats['confirmed'])}}
                     </div>
                     <div class="py-2 px-4 border-t border-b border-gray-100 w-1/4">
-                        {{$stats['deaths']}}
+                        {{number_format($stats['deaths'])}}
                     </div>
                     <div class="py-2 px-4 border-t border-b border-gray-100 w-1/4">
 
-                         {{$stats['recovered']}}
+                        {{number_format($stats['recovered'])}}
                     </div>
                 </div>
 

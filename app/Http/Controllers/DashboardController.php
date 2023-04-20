@@ -13,9 +13,9 @@ class DashboardController extends Controller
 	public function index(): View
 	{
 		$stats = [
-			'confirmed' => number_format(Statistic::sum('confirmed')),
-			'deaths'    => number_format(Statistic::sum('deaths')),
-			'recovered' => number_format(Statistic::sum('recovered')),
+			'confirmed' => Statistic::sum('confirmed'),
+			'deaths'    => Statistic::sum('deaths'),
+			'recovered' => Statistic::sum('recovered'),
 		];
 		return view('dashboard.index', ['stats' => $stats]);
 	}
@@ -23,9 +23,9 @@ class DashboardController extends Controller
 	public function bycountry(SortRequest $request): View
 	{
 		$stats = [
-			'confirmed' => number_format(Statistic::sum('confirmed')),
-			'deaths'    => number_format(Statistic::sum('deaths')),
-			'recovered' => number_format(Statistic::sum('recovered')),
+			'confirmed' => Statistic::sum('confirmed'),
+			'deaths'    => Statistic::sum('deaths'),
+			'recovered' => Statistic::sum('recovered'),
 		];
 
 		return view('dashboard.bycountry', ['countries' => $request->getFilteredData(), 'stats' => $stats]);

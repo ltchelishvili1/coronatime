@@ -35,14 +35,14 @@ class Statistic extends Model
 			$query->orderBy('country->en', $country);
 		});
 
-		$query->when($filters['recovered'] ?? false, function ($query, $recovered) {
-			$query->orderBy('recovered', $recovered);
+		$query->when($filters['recovered'] ?? false, function ($query, $order) {
+			$query->orderBy('recovered', $order);
 		});
-		$query->when($filters['deaths'] ?? false, function ($query, $deaths) {
-			$query->orderBy('deaths', $deaths);
+		$query->when($filters['deaths'] ?? false, function ($query, $order) {
+			$query->orderBy('deaths', $order);
 		});
-		$query->when($filters['confirmed'] ?? false, function ($query, $confirmed) {
-			$query->orderBy('confirmed', $confirmed);
+		$query->when($filters['confirmed'] ?? false, function ($query, $order) {
+			$query->orderBy('confirmed', $order);
 		});
 	}
 }
