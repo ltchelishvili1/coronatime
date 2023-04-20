@@ -46,11 +46,30 @@
                     </a>
                 </div>
             </div>
-            <div class="w-full h-[38rem] overflow-y-scroll scrollbar-thumb-gray-500 scrollbar-track-gray-300 scrollbar-thin">
+            <div
+                class="w-full h-[38rem] overflow-y-scroll scrollbar-thumb-gray-500 scrollbar-track-gray-300 scrollbar-thin">
+                <div class="flex bg-white hover:bg-gray-50">
+                    <div class="py-2 px-4 border-t border-b border-gray-100 w-1/4">
+                        {{__('dashboard.worldwide')}}
+                    </div>
+                    <div class="py-2 px-4 border-t border-b border-gray-100 w-1/4">
+                        {{number_format(App\Models\Statistic::sum('confirmed'))}}
+                    </div>
+                    <div class="py-2 px-4 border-t border-b border-gray-100 w-1/4">
+                        {{number_format(App\Models\Statistic::sum('deaths'))
+                        }}
+                    </div>
+                    <div class="py-2 px-4 border-t border-b border-gray-100 w-1/4">
+                      
+                          {{number_format(App\Models\Statistic::sum('recovered'))
+                        }}
+                    </div>
+                </div>
+
                 @foreach ($countries as $country)
                 <div class="flex bg-white hover:bg-gray-50">
                     <div class="py-2 px-4 border-t border-b border-gray-100 w-1/4">
-                        {{ json_decode($country->country, true)[Session::get('locale')] }}
+                        {{ json_decode($country->country, true)[Session::get('locale', 'en')] }}
                     </div>
                     <div class="py-2 px-4 border-t border-b border-gray-100 w-1/4">{{ number_format($country->confirmed)
                         }}
