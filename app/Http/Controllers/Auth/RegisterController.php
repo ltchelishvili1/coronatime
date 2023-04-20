@@ -21,9 +21,4 @@ class RegisterController extends Controller
 		$user->sendEmailVerificationNotification();
 		return redirect(route('verification.notice'));
 	}
-
-	public function verificationEmail(): View
-	{
-		return view('auth.resetpassword.email-sent');
-	}
 }

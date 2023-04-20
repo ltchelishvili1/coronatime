@@ -30,7 +30,7 @@
     <p class="text-2xl font-extrabold">{{$text}}</p>
     <div class="mt-10 flex">
         <div class="block relative">
-            <a href="{{route('dashboard')}}"
+            <a href="{{route('dashboard.index')}}"
                 class="{{ $selected === 'worldwide' ? 'font-bold' : '' }} text-base">{{__('dashboard.worldwide')}}</a>
             @if($selected === 'worldwide')
             <span class="absolute bg-black top-9 left-0 right-0 h-0.5"></span>

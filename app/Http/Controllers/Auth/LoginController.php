@@ -20,7 +20,7 @@ class LoginController extends Controller
 		$input = $request->all();
 		$fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 		if (auth()->attempt([$fieldType => $input['username'], 'password' => $input['password']], $request['remember_me'])) {
-			return redirect(route('dashboard'));
+			return redirect(route('dashboard.index'));
 		} else {
 			throw ValidationException::withMessages([
 				'username' => 'wrong credentials',
@@ -32,6 +32,6 @@ class LoginController extends Controller
 	{
 		auth()->logout();
 
-		return redirect(route('login'));
+		return redirect(route('login.index'));
 	}
 }

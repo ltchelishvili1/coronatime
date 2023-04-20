@@ -2,7 +2,7 @@
     <div class="lg:w-2/3 max-w-2/3">
         <h1 class="font-black text-2xl">{{__('login.title')}}</h1>
         <h5 class="my-4 text-zinc-400 text-xl">{{__('login.description')}}</h5>
-        <form method="POST" action="{{route('login.post')}}">
+        <form method="POST" action="{{route('login')}}">
             @csrf
             <x-form.input name='username' placeholder="{{__('placeholder.emailorusername')}}" />
             <x-form.input name='password' type='password' placeholder="{{__('placeholder.password')}}" />
@@ -23,7 +23,7 @@
             </div>
         </form>
         <div class="w-full flex items-center justify-center mt-6">
-            <p><span class="text-zinc-400">{{__('login.no_acc')}}</span><a href="{{route('register')}}"
+            <p><span class="text-zinc-400">{{__('login.no_acc')}}</span><a href="{{route('register.index')}}"
                     class="font-bold pl-1">{{__('login.sign_up')}}</a></p>
         </div>
     </div>

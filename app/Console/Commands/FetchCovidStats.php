@@ -13,7 +13,7 @@ class FetchCovidStats extends Command
 	 *
 	 * @var string
 	 */
-	protected $signature = 'fetch-covid-stats';
+	protected $signature = 'fetch:covid-stats';
 
 	/**
 	 * The console command description.
@@ -25,7 +25,7 @@ class FetchCovidStats extends Command
 	/**
 	 * Execute the console command.
 	 */
-	public function handle()
+	public function handle(): void
 	{
 		$countries = Http::get('https://devtest.ge/countries')->json();
 

@@ -16,6 +16,11 @@ class EmailVerifyController extends Controller
 	public function emailVerify(EmailVerifyRequest $request): RedirectResponse
 	{
 		$request->fulfill();
-		return redirect(route('login'));
+		return redirect(route('login.index'));
+	}
+
+	public function verificationEmail(): View
+	{
+		return view('auth.resetpassword.email-sent');
 	}
 }
