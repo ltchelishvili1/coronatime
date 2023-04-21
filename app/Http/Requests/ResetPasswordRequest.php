@@ -17,4 +17,13 @@ class ResetPasswordRequest extends FormRequest
 			'email' => 'required|email|exists:users,email',
 		];
 	}
+
+	public function messages()
+	{
+		return [
+			'email.required'   			=> __('validation.field_validation'),
+			'email.exists'      		=> __('validation.email_exists_not'),
+			'email.email' 				    => __('validation.shouldbe_email'),
+		];
+	}
 }
