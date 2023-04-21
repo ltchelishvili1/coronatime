@@ -23,7 +23,7 @@ class LoginController extends Controller
 			return redirect(route('dashboard.index'));
 		} else {
 			throw ValidationException::withMessages([
-				'username' => 'wrong credentials',
+				'username' => __('validation.wrong_credential'),
 			]);
 		}
 	}
