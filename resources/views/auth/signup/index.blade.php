@@ -1,7 +1,5 @@
 <x-auth-layout>
-    <div class="lg:w-2/3 max-w-2/3">
-        <h1 class="font-black text-2xl">{{__('signup.title')}}</h1>
-        <h5 class="my-4 text-zinc-400 text-xl">{{__('signup.description')}}</h5>
+    <x-auth-form-wrapper title="{{__('signup.title')}}" description="{{__('signup.description')}}">
         <form method="POST" action="{{route('register')}}">
             @csrf
             <x-form.input name='username' placeholder="{{__('placeholder.username')}}" />
@@ -15,13 +13,14 @@
                 </x-form.button>
             </div>
         </form>
-        <div class="w-full flex items-center justify-center mt-6">
-            <p><span class="text-zinc-400">{{__('signup.have_acc')}} </span><a href="{{route('login.index')}}"
-                    class="font-bold">{{__('signup.log_in')}} </a></p>
-        </div>
-    </div>
-    <div class="h-screen fixed flex flex-col  top-0 h-100vh ">
+        <x-form-footer-wrapper text="{{__('signup.have_acc')}}">
+            <a href="{{route('login.index')}}" class="font-bold">{{__('signup.log_in')}} </a>
+        </x-form-footer-wrapper>
+
+
+    </x-auth-form-wrapper>
+    <x-auth-lang-change-wrapper>
         <x-lang-change />
 
-    </div>
+    </x-auth-lang-change-wrapper>
 </x-auth-layout>
