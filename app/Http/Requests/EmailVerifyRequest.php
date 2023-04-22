@@ -23,6 +23,8 @@ class EmailVerifyRequest extends EmailVerificationRequest
 		$user = User::find($this->route('id'));
 
 		if (!$user->hasVerifiedEmail()) {
+			$user->is_email_verified = 1;
+			$user->save();
 			$user->markEmailAsVerified();
 		}
 	}
