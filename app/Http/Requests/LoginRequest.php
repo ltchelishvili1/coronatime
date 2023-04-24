@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LoginRequest extends FormRequest
@@ -14,7 +15,19 @@ class LoginRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'username'    => 'required|min:3|max:255',
+			'username' => [
+				'required',
+				'string',
+				function ($attribute, $value, $fail) {
+					$user = User::where('username', $value)
+								->orWhere('email', $value)
+								->first();
+
+					if (!$user) {
+						$fail(__('validation.user_not_found'));
+					}
+				},
+			],
 			'password'    => 'required|max:255',
 			'remember_me' => 'nullable',
 		];
@@ -28,6 +41,7 @@ class LoginRequest extends FormRequest
 			'username.max'         => __('validation.max'),
 			'username.min'         => __('validation.min'),
 			'username.required'    => __('validation.field_validation'),
+			'username.exists'      => __('validation.user_not_found'),
 		];
 	}
 }

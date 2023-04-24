@@ -29,8 +29,9 @@ class AuthTest extends TestCase
 
 	public function test_auth_should_give_us_password_error_if_we_wont_provide_password_input()
 	{
+		$user = User::factory()->create();
 		$response = $this->post('/login', [
-			'username' => 'test@test.com',
+			'username' => $user->username,
 			'password' => null,
 		]);
 
