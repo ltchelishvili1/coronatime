@@ -7,7 +7,7 @@
                 <x-assets.newcases-icon />
             </span>
             <h1 class="font-medium text-xl flex items-center justify-center">{{__('dashboard.new_cases')}}</h1>
-            <p class="font-black text-4xl text-dark-blue ">{{number_format($stats['confirmed'])}}</p>
+            <p class="font-black text-4xl text-dark-blue flex items-center justify-center">{{number_format($stats['confirmed'])}}</p>
         </div>
         <div class="w-full h-64 grid justify-center items-center  bg-dark-green/[.08] rounded-2xl">
             <span class="h-16 flex items-center justify-center">
@@ -16,7 +16,7 @@
                 </span>
             </span>
             <h1 class="font-medium text-xl flex items-center justify-center">{{__('dashboard.recovered')}}</h1>
-            <p class="font-black text-4xl text-dark-green ">{{number_format($stats['recovered'])}}</p>
+            <p class="font-black text-4xl text-dark-green flex items-center justify-center">{{number_format($stats['recovered'])}}</p>
 
         </div>
         <div class="w-full h-64 grid justify-center items-center  bg-dark-yellow/[.08] rounded-2xl">
@@ -24,7 +24,7 @@
                 <x-assets.death-icon />
             </span>
             <h1 class="font-medium text-xl flex items-center justify-center">{{__('dashboard.death')}}</h1>
-            <p class="font-black text-4xl text-dark-yellow ">{{number_format($stats['deaths'])}}</p>
+            <p class="font-black text-4xl text-dark-yellow flex items-center justify-center">{{number_format($stats['deaths'])}}</p>
 
         </div>
     </div>

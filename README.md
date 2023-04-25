@@ -1,8 +1,7 @@
 
 # Movie Quotes Generator
 
-Movie Quotes Generator appplication produces random quotes from random movies. Application creates admin and on special panel gives opportunity to create add read and remove quotes and movies.
-
+Coronatime is a site where we may sign up, go through authorisation (and retrieve our passwords if we forget them), and find out the current covid statistics in many nations across the world.
 
 
 ## Table of Contents
@@ -18,13 +17,13 @@ Movie Quotes Generator appplication produces random quotes from random movies. A
 - [Development](#development)
 
 ## Prerequisites
-- PHP@7.2 and up
+- PHP@8.x and up
 - MYSQL@8 and up
-- npm@6 and up
+- npm@9.x and up
 - composer@2 and up
 
 ## Tech Stack
-- Laravel@6.x - back-end framework
+- Laravel@10.6.2 - back-end framework
 - Spatie Translatable - package for translation
 - Tailwind3.3.1@up - front-end framework
 
