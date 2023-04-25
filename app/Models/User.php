@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Notifications\CustomVerifyEmailNotification;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -52,11 +51,6 @@ class User extends Authenticatable implements MustVerifyEmail
 	public function setPasswordAttribute(string $password): void
 	{
 		$this->attributes['password'] = bcrypt($password);
-	}
-
-	public function passwordReset(): HasMany
-	{
-		return $this->hasMany(PasswordReset::class, 'email', 'email');
 	}
 
 	public function sendEmailVerificationNotification(): void
