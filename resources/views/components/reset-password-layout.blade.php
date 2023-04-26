@@ -1,6 +1,3 @@
-
-
-
 <!doctype html>
 <html>
 
@@ -22,8 +19,10 @@
 
 <body class="grid justify-center">
     <div class="grid justify-center">
-     <span class="mt-10 mb-36"> <x-assets.coronatime-logo /></span>  
-      <h1 class="font-black text-2xl mb-14">{{$title}}</h1>
+        <span class="mt-10 mb-36"><a href="/">
+                <x-assets.coronatime-logo />
+            </a> </span>
+        <h1 class="font-black text-2xl mb-14">{{$title}}</h1>
     </div>
     <div>
         {{$slot}}
