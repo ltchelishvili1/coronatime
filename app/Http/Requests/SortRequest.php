@@ -10,22 +10,11 @@ class SortRequest extends FormRequest
 	public function rules()
 	{
 		return [
-			'search'    => ['nullable', 'string'],
-			'country'   => ['nullable', 'string'],
-			'recovered' => ['nullable', 'string'],
-			'deaths'    => ['nullable', 'string'],
-			'confirmed' => ['nullable', 'string'],
-		];
-	}
-
-	public function filters()
-	{
-		return [
-			'search'    => 'trim|escape',
-			'country'   => 'trim|escape',
-			'recovered' => 'trim|escape',
-			'deaths'    => 'trim|escape',
-			'confirmed' => 'trim|escape',
+			'search'    => 'nullable|string',
+			'country'   => 'nullable|string',
+			'recovered' => 'nullable|string',
+			'deaths'    => 'nullable|string',
+			'confirmed' => 'nullable|string',
 		];
 	}
 

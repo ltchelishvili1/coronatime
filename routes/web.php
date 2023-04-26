@@ -39,7 +39,7 @@ Route::middleware('guest')->group(function () {
 		Route::get('reset-password-changed', 'passwordchanged')->name('passwordchanged');
 	});
 });
-Route::middleware('auth')->group(function () {
+Route::middleware(['verified', 'auth'])->group(function () {
 	Route::redirect('/', 'dashboard');
 	Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 	Route::get('dashboard-by-country', [DashboardController::class, 'bycountry'])->name('dashboard.bycountry');

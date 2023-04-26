@@ -14,7 +14,7 @@ class LoginRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'username'    => 'required|min:3|max:255',
+			'username'    => 'required|string',
 			'password'    => 'required|max:255',
 			'remember_me' => 'nullable',
 		];
@@ -28,6 +28,7 @@ class LoginRequest extends FormRequest
 			'username.max'         => __('validation.max'),
 			'username.min'         => __('validation.min'),
 			'username.required'    => __('validation.field_validation'),
+			'username.exists'      => __('validation.user_not_found'),
 		];
 	}
 }

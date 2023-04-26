@@ -7,8 +7,10 @@ return [
 	'wrong_credential'              => 'არასწორი მონაცემები.',
 	'field_validation'              => 'ველი აუცილებელია',
 	'shouldbe_email'                => 'შეიყვანეთ ემაილი',
-	'username_unique'				=> 'მომხმარებლის სახელი დაკავებულია',
+	'username_unique'				           => 'მომხმარებლის სახელი დაკავებულია',
 	'email_unique'                  => 'ელ-ფოსტა დაკავებულია',
-	'password_same'		            => 'უნდა ემთხვეოდეს პაროლს',
+	'password_same'		               => 'უნდა ემთხვეოდეს პაროლს',
 	'email_exists_not'              => 'მომხმარებელი ვერ მოიძებნა',
+	'user_not_found'				            => 'მომხმარებელი ვერ მოიძებნა',
+	'email_not_verified'			         => 'დაადასტურე ელ-ფოსტა',
 ];
