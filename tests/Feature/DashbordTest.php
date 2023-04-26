@@ -4,10 +4,13 @@ namespace Tests\Feature;
 
 use App\Models\Statistic;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class DashbordTest extends TestCase
 {
+	use RefreshDatabase;
+
 	protected $statisticA;
 
 	protected $statisticB;

@@ -3,10 +3,13 @@
 namespace Tests\Feature;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class LanguageTest extends TestCase
 {
+	use RefreshDatabase;
+
 	public function test_check_if_language_is_stored_in_session(): void
 	{
 		$language = 'ka';

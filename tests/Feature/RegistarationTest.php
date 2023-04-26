@@ -4,11 +4,14 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use App\Notifications\CustomVerifyEmailNotification;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class RegistarationTest extends TestCase
 {
+	use RefreshDatabase;
+
 	/**
 	 * A basic feature test example.
 	 */

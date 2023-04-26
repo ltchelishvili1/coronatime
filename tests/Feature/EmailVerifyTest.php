@@ -6,12 +6,15 @@ use App\Mail\ResetPassword;
 use App\Models\PasswordReset;
 use App\Models\User;
 use App\Notifications\CustomVerifyEmailNotification;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 use Illuminate\Support\Str;
 
 class EmailVerifyTest extends TestCase
 {
+	use RefreshDatabase;
+
 	/**
 	 * A basic feature test example.
 	 */

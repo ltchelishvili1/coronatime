@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Mail\ResetPassword;
 use App\Models\PasswordReset;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -13,6 +14,8 @@ use Tests\TestCase;
 
 class ResetPasswordTest extends TestCase
 {
+	use RefreshDatabase;
+
 	/**
 	 * A basic feature test example.
 	 */
