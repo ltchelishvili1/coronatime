@@ -1,7 +1,7 @@
 <nav class="flex justify-between items-center h-20 md:h-90">
     <div class="grid grid-cols-2 items-center flex-grow">
         <div class="flex items-center">
-            <x-assets.coronatime-logo class="h-20 md:h-28 mr-4" />
+          <a href="{{route('dashboard.index')}}"><x-assets.coronatime-logo class="h-20 md:h-28 mr-4" /></a>  
         </div>
         <div class="flex items-center justify-end" x-data="{ show: false }">
             <div class="ml-auto md:block">
