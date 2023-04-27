@@ -21,22 +21,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
 	Route::redirect('/', 'login');
-	Route::get('login', [LoginController::class, 'index'])->name('login.index');
-	Route::post('login', [LoginController::class, 'login'])->name('login');
-	Route::controller(RegisterController::class)->group(function () {
-		Route::get('register', 'index')->name('register.index');
-		Route::post('register', 'register')->name('register');
-	});
+	Route::view('login', 'auth.login.index')->name('login.index');
+	Route::view('register', 'auth.signup.index')->name('register.index');
+	Route::view('email/verify', 'auth.resetpassword.email-sent')->name('verification.notice');
+	Route::view('register-verification-email-sent', 'auth.resetpassword.email-sent')->name('register.emailsent');
+	Route::view('reset-password-changed', 'auth.resetpasswordreq.password-changed')->name('passwordchanged');
+	Route::view('forgot-password', 'auth.resetpasswordreq.index')->name('password.resetrequest');
 
-	Route::get('register-verification-email-sent', [EmailVerifyController::class, 'verificationEmail'])->name('register.emailsent');
-	Route::get('email/verify', [EmailVerifyController::class, 'index'])->name('verification.notice');
+	Route::post('login', [LoginController::class, 'login'])->name('login');
+	Route::post('register', [RegisterController::class, 'register'])->name('register');
+
 	Route::get('/email/verify/{id}/{hash}', [EmailVerifyController::class, 'emailVerify'])->name('verification.verify');
 	Route::controller(PasswordResetController::class)->group(function () {
-		Route::get('forgot-password', 'resetRequest')->name('password.resetrequest');
 		Route::post('reset-password', 'resetPassword')->name('password.resetrequest.post');
 		Route::get('reset-password/{token}', 'index')->name('password.resetform');
 		Route::post('reset-password/{token}', 'changePassword')->name('password.update');
-		Route::get('reset-password-changed', 'passwordchanged')->name('passwordchanged');
 	});
 });
 Route::middleware(['verified', 'auth'])->group(function () {
