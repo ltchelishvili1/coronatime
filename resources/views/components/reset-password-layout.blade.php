@@ -19,7 +19,8 @@
 
 <body class="grid justify-center">
     <div class="grid justify-center">
-        <span class="mt-10 mb-36"><a href="/">
+        <span class="mt-10 mb-36">
+            <a href="{{route('login.index')}}">
                 <x-assets.coronatime-logo />
             </a> </span>
         <h1 class="font-black text-2xl mb-14">{{$title}}</h1>
