@@ -8,8 +8,6 @@ use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
-	public $stats;
-
 	public function index(): View
 	{
 		$stats = [

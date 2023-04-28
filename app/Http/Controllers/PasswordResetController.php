@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ChangePassword;
+use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Mail\ResetPassword;
 use App\Models\PasswordReset;
@@ -35,7 +35,7 @@ class PasswordResetController extends Controller
 		return redirect(route('register.emailsent'));
 	}
 
-	public function changePassword(ChangePassword $request, $token): RedirectResponse
+	public function changePassword(ChangePasswordRequest $request, $token): RedirectResponse
 	{
 		$newPassword = $request->validated()['new_password'];
 		$email = PasswordReset::where('token', $token)->first()->email;
@@ -45,15 +45,5 @@ class PasswordResetController extends Controller
 		]);
 
 		return redirect(route('passwordchanged'));
-	}
-
-	public function passwordChanged(): View
-	{
-		return view('auth.resetpasswordreq.password-changed');
-	}
-
-	public function resetRequest(): View
-	{
-		return view('auth.resetpasswordreq.index');
 	}
 }
